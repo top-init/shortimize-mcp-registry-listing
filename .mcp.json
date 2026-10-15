@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "shortimize": {
+      "type": "http",
+      "url": "https://api.shortimize.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${SHORTIMIZE_API_KEY}"
+      }
+    }
+  }
+}

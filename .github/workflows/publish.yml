@@ -1,0 +1,33 @@
+name: publish
+
+on:
+  push:
+    branches: [main]
+    paths: [server.json]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # The signing key is an environment secret; a run waits for a reviewer.
+    environment: mcp-registry-publish
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - name: Install mcp-publisher
+        run: |
+          curl -sSLo p.tgz https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz
+          echo "a06c9096dcb9727c13555b6be26c7effa707b01f06a4c561ba7a3635443cf2cc  p.tgz" | sha256sum -c -
+          tar xzf p.tgz mcp-publisher
+      # DNS proof: the apex TXT record holds the public key. HTTP proof cannot
+      # work here because the apex redirects to www and the registry won't follow.
+      - name: Log in with the domain key
+        env:
+          KEY: ${{ secrets.MCP_REGISTRY_PRIVATE_KEY }}
+        run: ./mcp-publisher login dns --domain shortimize.com --private-key "$KEY"
+      - name: Publish
+        run: ./mcp-publisher publish
