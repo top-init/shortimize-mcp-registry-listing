@@ -53,6 +53,15 @@ claude mcp add --transport http shortimize https://api.shortimize.com/mcp \
 }
 ```
 
+## Find it in MCP directories
+
+- [Official MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=com.shortimize)
+- [Smithery](https://smithery.ai/server/topinit/shortimize)
+- [MCP.so](https://mcp.so/servers/shortimize)
+- [AllMCPs](https://allmcps.com/mcp/shortimize)
+- [MCP Repository](https://mcprepository.com/top-init/shortimize-mcp-registry-listing)
+- [AI Indigo](https://aiindigo.com/tool/shortimize)
+
 ## Also from the same team
 
 - [App Store Tracker MCP](https://github.com/top-init/appstoretracker-mcp-registry-listing): iOS rankings, reviews, keywords and revenue estimates
