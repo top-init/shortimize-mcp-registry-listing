@@ -3,7 +3,7 @@
   "name": "com.shortimize/mcp",
   "title": "Shortimize",
   "description": "Track TikTok, Instagram Reels and YouTube Shorts accounts and videos: views, growth and analytics.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://www.shortimize.com",
   "remotes": [
     {
@@ -18,5 +18,9 @@
         }
       ]
     }
-  ]
+  ],
+  "repository": {
+    "url": "https://github.com/top-init/shortimize-mcp-registry-listing",
+    "source": "github"
+  }
 }
